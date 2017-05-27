@@ -1,12 +1,13 @@
 import React from 'react'
 
-// try this:
-// import all components
-// map string data to components
-// return new data object (store?)
+// Import all the components that can be used from within the CMS
+const MODULES = {
+  ProductCard: require('components/ProductCard').default
+}
 
 export const BuildCMSModules = modules =>
   modules.map(module => {
     const { Component, ...props } = module
-    return <Component key={module.id} {...props} />
+    const CMSComponent = MODULES[Component]
+    return <CMSComponent key={module.id} {...props} />
   })

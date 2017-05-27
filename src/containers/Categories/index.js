@@ -2,35 +2,37 @@ import React from 'react'
 
 import { BuildCMSModules } from 'hoc/BuildCMSModules'
 
-export const PostTitle = ({ title }) => (
-  <div>{title}</div>
-)
-
-export const PostBody = ({ body }) => (
-  <div>{body}</div>
-)
-
-export const Post = ({title}) => {
-  return (
-    <div className='post'>
-      Post
-      <div>{title}</div>
-    </div>
-  )
-}
-
 const cmsData = [
   {
     id: 1,
-    Component: Post,
-    title: 'Post title from CMS',
-    body: 'Post bodies are cool too'
+    Component: 'ProductCard',
+    title: 'Yellow dress',
+    body: 'Summer collection dress'
+  },
+  {
+    id: 2,
+    Component: 'ProductCard',
+    title: 'Red t-shirt',
+    body: 'Slim fit regular t-shirt'
   }
 ]
+
+// const mapDataToComponents = modules => {
+//   modules.map(module => {
+//     // map Component: 'Post' to Post
+
+//     module.Component = module.Component.replace(/\'/g, "")
+//   })
+//   return modules
+// }
+
+// const newData = mapDataToComponents(cmsData)
+// console.log(newData)
 
 
 export default class CategoriesPage extends React.Component {
   render() {
+    // mapDataToComponents(cmsData)
     return (
       <div className='categories'>
         <h2>Categories</h2>
